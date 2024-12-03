@@ -23,13 +23,13 @@ except Exception as e:
     st.write(e)
 
 st.title("Pregunta lo que quieras de los modelos Hyundai 💬🚙")
-st.info("No es una aplicación oficial, se basa en las fichas públicas de cada auto", icon="📃")
+st.info("No es una aplicación oficial, se basa en las fichas públicas y precios desde de cada auto", icon="📃")
 
 if "messages" not in st.session_state.keys():  # Initialize the chat messages history
     st.session_state.messages = [
         {
             "role": "assistant",
-            "content": "Hola, conozco todos los modelos nuevos de Hyundai, puedes preguntarme sobre versiones, especificaciones y precios",
+            "content": "Hola, puedes preguntarme sobre versiones, especificaciones y precios",
         }
     ]
 
