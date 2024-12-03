@@ -11,6 +11,7 @@ import streamlit as st
 import openai
 from llama_index.llms.openai import OpenAI
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings
+from llama_index.embeddings.openai import OpenAIEmbedding
 
 st.set_page_config(page_title="Pregunta lo que quieras de los modelos Hyundai", page_icon='🚙', layout="centered", initial_sidebar_state="auto", menu_items=None)
 
@@ -35,6 +36,11 @@ if "messages" not in st.session_state.keys():  # Initialize the chat messages hi
 
 @st.cache_resource(show_spinner=False)
 def load_data():
+    
+    embedding_model = OpenAIEmbedding(
+    api_key=openai.api_key,
+    model="text-embedding-ada-002" 
+    )
     reader = SimpleDirectoryReader(input_dir="./data", recursive=True, chunk_size=512)
     docs = reader.load_data()
     Settings.llm = OpenAI(
