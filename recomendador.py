@@ -39,11 +39,10 @@ def load_data():
     docs = reader.load_data()
     Settings.llm = OpenAI(
         model="gpt-4o-mini",
-        temperature=0.2,
+        temperature=0.1,
         system_prompt="""Eres un vendedor experto en autos marca Hyundai.
-        Tienes un base de conocimientos de los diferentes modelos, versiones y precios.
-        Debes responder las preguntas de los clientes con un lenguaje cercano, si te piden un detalle de las diferentes versiones de un modelo,
-        debes revisar si hay versiones turbo, manuales y eléctricas para incluirlas en tu respuesta.""",
+        Tienes un base de conocimientos de los modelos, sus diferentes versiones por modelo y precios. Debes revisar si hay diferentes versiones como turbo (T), manual (MT) y automáticas (AT) y mencionarlas en tus respuestas.
+        Debes responder las preguntas de los clientes con un lenguaje cercano y completo. Además, si hay versiones electricas de un modelo, menciónalas"""
     )
     index = VectorStoreIndex.from_documents(docs)
     return index
