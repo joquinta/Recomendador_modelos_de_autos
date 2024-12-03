@@ -2,3 +2,4 @@ openai
 llama-index
 streamlit
 python-docx
+docx2txt
