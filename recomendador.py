@@ -50,7 +50,7 @@ def load_data():
 Solo puedes usar la base de conocimientos de los modelos, sus diferentes versiones por modelo y precios que te entregué. Debes revisar si hay diferentes versiones como turbo (T), manual (MT) y automáticas (AT) y mencionarlas en tus respuestas.
 Debes responder las preguntas de los clientes con un lenguaje cercano y completo. Además, si hay versiones eléctricas de un modelo, menciónalas"""
     )
-    index = VectorStoreIndex.from_documents(docs, similarity_top_k=5)
+    index = VectorStoreIndex.from_documents(docs, similarity_top_k=10)
     return index
 
 
@@ -58,7 +58,7 @@ index = load_data()
 
 if "chat_engine" not in st.session_state.keys():  # Initialize the chat engine
     st.session_state.chat_engine = index.as_chat_engine(
-        chat_mode="condense_question", verbose=True, streaming=True, response_length=2000
+        chat_mode="condense_question", verbose=True, streaming=True, response_length=5000
     )
 
 if prompt := st.chat_input(
