@@ -38,7 +38,7 @@ def load_data():
     reader = SimpleDirectoryReader(input_dir="./data", recursive=True)
     docs = reader.load_data()
     Settings.llm = OpenAI(
-        model="GPT-4o mini",
+        model="gpt-4o-mini",
         temperature=0.2,
         system_prompt="""Eres un vendedor experto en autos marca Hyundai.
         Tienes un base de conocimientos de los diferentes modelos, versiones y precios.
