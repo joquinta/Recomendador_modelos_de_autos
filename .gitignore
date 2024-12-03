@@ -134,6 +134,9 @@ venv.bak/
 .spyderproject
 .spyproject
 
+# Secrets
+secrets.toml
+
 # Rope project settings
 .ropeproject
 
