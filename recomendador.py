@@ -16,11 +16,11 @@ st.set_page_config(page_title="Pregunta lo que quieras de los modelos Hyundai", 
 
 #openai.api_key = st.secrets.openai_key
 try:
-    openai.api_key = st.secrets["openai_key"]
+    openai.api_key = st.secrets["openai"]["openai_key"]
+    print("API key found:", st.secrets["openai"]["openai_key"][:5] + "...")
 except Exception as e:
-    st.error("Error accediendo a la clave de API. Verifica secrets.toml")
-    st.write(f"Error: {e}")
-
+    st.error("Error de configuración en secrets")
+    st.write(e)
 
 st.title("Pregunta lo que quieras de los modelos Hyundai 💬🚙")
 st.info("No es una aplicación oficial, se basa en las fichas públicas de cada auto", icon="📃")
