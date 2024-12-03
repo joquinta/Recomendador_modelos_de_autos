@@ -41,7 +41,7 @@ def load_data():
     api_key=openai.api_key,
     model="text-embedding-ada-002" 
     )
-    reader = SimpleDirectoryReader(input_dir="./data", recursive=True, chunk_size=512)
+    reader = SimpleDirectoryReader(input_dir="./data", recursive=True)
     docs = reader.load_data()
     Settings.llm = OpenAI(
         model="gpt-4o-mini",
