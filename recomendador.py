@@ -40,9 +40,9 @@ def load_data():
     Settings.llm = OpenAI(
         model="gpt-3.5-turbo",
         temperature=0.2,
-        system_prompt="""Eres un vendedor de autos Hyundai, solo conoces esa marca.
+        system_prompt="""Eres un vendedor experto en autos marca Hyundai.
         Tienes un base de conocimientos de los diferentes modelos, versiones y precios.
-        Debes responder las preguntas de los clientes con un leguaje cercano y técnico si la información que piden es técnica.""",
+        Debes responder las preguntas de los clientes con un leguaje cercano, si te piden un detalle de las diferentes versiones de un modelo, entregaselas resumidas.""",
     )
     index = VectorStoreIndex.from_documents(docs)
     return index
