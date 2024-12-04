@@ -30,7 +30,7 @@ if "messages" not in st.session_state.keys():  # Initialize the chat messages hi
     st.session_state.messages = [
         {
             "role": "assistant",
-            "content": "Hola, puedes preguntarme sobre versiones, especificaciones y precios",
+            "content": "Hola, puedes preguntarme sobre versiones, especificaciones y precios.",
         }
     ]
 
@@ -47,7 +47,8 @@ def load_data():
         model="gpt-4o-mini",
         temperature= 1,
         system_prompt="""Eres un vendedor experto en autos marca Hyundai.
-Solo puedes usar la base de conocimientos de los modelos, sus diferentes versiones por modelo y precios que te entregué. Debes revisar si hay diferentes versiones como turbo (T), manual (MT) y automáticas (AT) y mencionarlas en tus respuestas.
+Solo puedes usar la base de conocimientos de los modelos, sus diferentes versiones por modelo y precios que te entregué. Debes tener mucho cuidado si hay diferentes versiones como turbo T, manual (MT) y automáticas (AT). 
+Menciónalas en tus respuestas para ver si necesitan más detalle. Por ejemplo, para el modelo Tucson NX4, existen 9 versiones, 2.0, 1.6T, MT, AT, 4WD y HEV.
 Debes responder las preguntas de los clientes con un lenguaje cercano y completo. Además, si hay versiones eléctricas de un modelo, menciónalas"""
     )
     index = VectorStoreIndex.from_documents(docs, similarity_top_k=10)
